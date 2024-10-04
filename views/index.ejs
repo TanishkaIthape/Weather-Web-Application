@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/01.weather_app/public/styles/index.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+                <h1>
+                    Weather App
+                </h1>
+        </nav>
+    </header>
+
+    <section>
+        <form action="/submit" method="post">
+        <input type="text" name="city" id="" placeholder="City" required>
+        <input type="text" name="country_code" id="" placeholder="code" required>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+    </section>
+        <% if (locals.temp) { %>
+            <h1>
+              <%= temp %>
+            </h1>
+            <% } else { %>
+              <h1>enter city and c code</h1>
+              <% } %>
+
+    <script src="index.js"></script>
+</body>
+</html>
