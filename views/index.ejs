@@ -7,29 +7,66 @@
     <link rel="stylesheet" href="/01.weather_app/public/styles/index.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-                <h1>
-                    Weather App
-                </h1>
-        </nav>
-    </header>
-
     <section>
-        <form action="/submit" method="post">
-        <input type="text" name="city" id="" placeholder="City" required>
-        <input type="text" name="country_code" id="" placeholder="code" required>
-        <button type="submit" value="submit">Submit</button>
-    </form>
-    </section>
-        <% if (locals.temp) { %>
-            <h1>
-              <%= temp %>
-            </h1>
-            <% } else { %>
-              <h1>enter city and c code</h1>
-              <% } %>
+    <div class="main-container">
+<!-- ----------------code of vertical div----------------- -->
+        <div class="vertical container">
+            <!-- logo -->
+            <div class="logo">
+                <img class="logo-image" src="/01.weather_app/public/images/weather_logo-photoaidcom-cropped (1).png" alt="" srcset="">
+                <h1>Weather App</h1>
+            </div>
 
+            <hr>
+
+            <!-- input -->
+            <div class="input">
+                <form action="/submit" method="post">
+                    <input type="text" name="city" class="first" placeholder="City" required>
+                    <input type="text" name="country_code" class="second" placeholder="code" required>
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+            <!-- icon & temperature -->
+             <div class="weather-icon"> <p class="temperature">54<superscript style="font-size: medium;">o</superscript> C</p> <img src=" https://openweather.site/img/wn/01d.png
+                " alt="" srcset=""></div>
+             <hr>
+            <!-- city -->
+            <div class="city">Shrigonda , IN</div>
+        </div>
+<!-- ----------------code of horizontal div----------------- -->
+        <div class="horizontal container">
+            <h1>Today's Weather</h1>
+            <p> -------heeepalsfnsei </p>
+        </div>
+<!-- ------- code for humidity ------- -->       
+        <div class="small container">
+            <p class="title">Humidity</p>
+            <p class="value">5.2</p>
+            <p class="description">normal</p>
+        </div>
+<!-- ------- code for Sunrise & Sunset ------- -->   
+        <div class="small container">
+            <p class="title">Sunrise & Sunset</p>
+            <p class="value">5.2</p>
+            <p class="description">normal</p>
+        </div>
+<!-- ------- code for Wind Speed ------- -->          
+        <div class="small container">
+            <p class="title">Wind Speed</p>
+            <p class="value">5.2</p>
+            <p class="description">normal</p>
+        </div>
+<!-- ------- code for visibility ------- -->   
+        <div class="small container">
+            <p class="title">Visibility</p>
+            <p class="value">5.2</p>
+            <p class="description">normal</p>
+        </div>
+
+    </div>
+    </section>
+    <!-- -->
     <script src="index.js"></script>
 </body>
 </html>
