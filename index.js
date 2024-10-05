@@ -20,26 +20,28 @@ app.post("/submit", async (req, res) => {
     method: 'GET',
     url: 'https://open-weather13.p.rapidapi.com' + `/city/${city}/${c_code}`,
     headers: {
-      'x-rapidapi-key': '8bab53d324msh2b1ea315288eeb7p1c88b3jsn13afa91bfef5',
+      'x-rapidapi-key': 'd3c07fd49emsh33fc5de0867d95fp111100jsneb1ea9c5347e',
       'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
     }
-  };
-  
+    };
   try {
-    const response = await axios.request(options);
+    
+   const response = await axios.request(options);
    const temperature = response.data.main.temp;
-   /*
+   const icon = response.data.weather[0].icon;
+   const weth_para = response.data.weather[0].main;
    const humidity = response.data.main.humidity;
-   const weth_para = response.data.weather.main;
-   const c_code = response.data.sys.country;
-   const icon = response.data.weather.icon;
    const wind_speed = response.data.wind.speed;
    const visibility = response.data.visibility;
+   /*
+   
+   const img_url = `https://openweather.site/img/wn/01d.png`
+   const c_code = response.data.sys.country;
    const sunrise = response.data.sys.sunrise;
    const sunset = response.data.sys.sunset;
    */
+    res.render("index.ejs", { temp: temperature , image: icon , city_: city, code:c_code, weth_message:weth_para , humid:humidity , wind:wind_speed , vission:visibility});
     console.log(response.data);
-    res.render("index.ejs", { temp: temperature});
   } catch (error) {
     console.error(error);
   }

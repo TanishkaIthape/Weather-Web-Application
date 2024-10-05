@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/01.weather_app/public/styles/index.css">
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
     <section>
@@ -13,7 +13,7 @@
         <div class="vertical container">
             <!-- logo -->
             <div class="logo">
-                <img class="logo-image" src="/01.weather_app/public/images/weather_logo-photoaidcom-cropped (1).png" alt="" srcset="">
+                <img class="logo-image" src="../images/weather_logo-photoaidcom-cropped (1).png" alt="" srcset="">
                 <h1>Weather App</h1>
             </div>
 
@@ -28,21 +28,51 @@
                 </form>
             </div>
             <!-- icon & temperature -->
-             <div class="weather-icon"> <p class="temperature">54<superscript style="font-size: medium;">o</superscript> C</p> <img src=" https://openweather.site/img/wn/01d.png
-                " alt="" srcset=""></div>
+            <% if (locals.temp) { %>        
+            <div class="weather-icon"> 
+                    
+                    <p class="temperature"> <%= temp %> </p>
+
+                    <img src="https://openweather.site/img/wn/<%= image %>.png" alt="weather-icon">
+                    </div>
+                    <% } else { %>
+                    <div class="weather-icon"> 
+                    <p class="temperature">  ---- </p>
+                    </div>
+                      <% } %>
              <hr>
+
             <!-- city -->
-            <div class="city">Shrigonda , IN</div>
+                
+            <div class="city">
+                <% if (locals.city_ && locals.code) { %>     
+                <%= city_ %> , <%= code %>
+                <% } else { %>
+                ---------- , ---
+                <% } %>
+            </div>
         </div>
 <!-- ----------------code of horizontal div----------------- -->
         <div class="horizontal container">
-            <h1>Today's Weather</h1>
-            <p> -------heeepalsfnsei </p>
+            <h1>Today's Highlight</h1>
+            <p> 
+                <% if (locals.weth_message) { %> 
+                    <%= weth_message %>    
+                <% } else { %> 
+                    --------
+                <% } %>
+            </p>
         </div>
 <!-- ------- code for humidity ------- -->       
         <div class="small container">
             <p class="title">Humidity</p>
-            <p class="value">5.2</p>
+            <p class="value">
+                <% if (locals.humid) { %> 
+                    <%= humid %><h1>%</h1> 
+                <% } else { %> 
+                    --------
+                <% } %>
+            </p>
             <p class="description">normal</p>
         </div>
 <!-- ------- code for Sunrise & Sunset ------- -->   
@@ -54,13 +84,27 @@
 <!-- ------- code for Wind Speed ------- -->          
         <div class="small container">
             <p class="title">Wind Speed</p>
-            <p class="value">5.2</p>
+            <p class="value">
+                <% if (locals.wind) { %> 
+                    <%= wind %><h1>m/sec</h1>    
+                <% } else { %> 
+                    --------
+                <% } %>
+            </p>
             <p class="description">normal</p>
         </div>
 <!-- ------- code for visibility ------- -->   
         <div class="small container">
             <p class="title">Visibility</p>
-            <p class="value">5.2</p>
+            <p class="value">
+                <p class="title">
+                    <% if (locals.vission) { %> 
+                        <%= vission %><h1>m</h1>    
+                    <% } else { %> 
+                        --------
+                    <% } %>
+                </p>
+            </p>
             <p class="description">normal</p>
         </div>
 
